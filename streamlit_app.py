@@ -30,7 +30,7 @@ def get_current_price(ticker):
 
 # Main title
 st.markdown("""
-<div style="margin-bottom: 0px;">
+<div style="margin-bottom: -5px;">
     <span style="font-size:14px; background-color:#E0E0E0; padding:4px 8px; border-radius:4px;">Derivio</span>
 </div>
 """, unsafe_allow_html=True)
