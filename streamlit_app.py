@@ -83,7 +83,7 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                 st.write(data.tail())
                 
                 fig = Ticker.plot_data(data, ticker, 'Close')
-                st.write("Ticker.plot_data returned:", type(fig), repr(fig))
+                st.pyplot(fig)
 
                 spot_price = Ticker.get_last_price(data, 'Close')
                 risk_free_rate = risk_free_rate / 100
