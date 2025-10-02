@@ -103,78 +103,6 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
     else:
         st.info("Click 'Calculate option price' to see results.")
 
-# Required imports (put these at the top of your file)
-import streamlit as st
-import matplotlib.pyplot as plt
-from datetime import datetime, timedelta
-import numpy as np
-
-# --- Example MonteCarloPricing class (only relevant parts shown) ---
-class MonteCarloPricing:
-    def __init__(self, spot_price, strike_price, days_to_maturity, r, sigma, n_sim):
-        self.spot_price = spot_price
-        self.strike_price = strike_price
-        self.days_to_maturity = days_to_maturity
-        self.r = r
-        self.sigma = sigma
-        self.n_sim = n_sim
-        self.simulated_paths = None  # will be numpy array shape (n_sim, n_steps)
-
-    def simulate_prices(self, n_steps=252):
-        """Simulate price paths using geometric Brownian motion (example)."""
-        dt = self.days_to_maturity / n_steps if self.days_to_maturity > 0 else 1.0 / n_steps
-        drift = (self.r - 0.5 * self.sigma ** 2) * dt
-        diffusion_std = self.sigma * np.sqrt(dt)
-
-        paths = np.zeros((self.n_sim, n_steps + 1))
-        paths[:, 0] = self.spot_price
-
-        for t in range(1, n_steps + 1):
-            z = np.random.normal(size=self.n_sim)
-            paths[:, t] = paths[:, t - 1] * np.exp(drift + diffusion_std * z)
-
-        self.simulated_paths = paths
-        self.n_steps = n_steps  # store for plotting/axis
-
-    def plot_simulation_results(self, num_of_movements=100):
-        """
-        Plot a subset of simulated paths and return the matplotlib Figure.
-        Returns:
-            matplotlib.figure.Figure
-        """
-        # guard: ensure simulation has run
-        if getattr(self, "simulated_paths", None) is None:
-            raise RuntimeError("Call simulate_prices() before plot_simulation_results().")
-
-        n_paths = self.simulated_paths.shape[0]
-        n_to_plot = min(num_of_movements, n_paths)
-        times = np.arange(self.simulated_paths.shape[1])  # 0..n_steps
-
-        fig, ax = plt.subplots(figsize=(10, 5))
-        for i in range(n_to_plot):
-            ax.plot(times, self.simulated_paths[i, :], alpha=0.7, linewidth=0.9)
-
-        ax.set_title("Monte Carlo simulated price paths")
-        ax.set_xlabel("Time step")
-        ax.set_ylabel("Price")
-        ax.grid(True)
-        fig.tight_layout()
-
-        return fig
-
-    def calculate_option_price(self, option_type='Call Option'):
-        # placeholder: compute option price from simulated terminal payoffs
-        if self.simulated_paths is None:
-            raise RuntimeError("Call simulate_prices() before calculate_option_price().")
-        terminal = self.simulated_paths[:, -1]
-        if option_type.lower().startswith('call'):
-            payoffs = np.maximum(terminal - self.strike_price, 0)
-        else:
-            payoffs = np.maximum(self.strike_price - terminal, 0)
-        discounted = np.exp(-self.r * (self.days_to_maturity / 252.0)) * payoffs
-        return float(np.mean(discounted))
-
-# --- The Streamlit UI branch for Monte Carlo (your original block, updated) ---
 elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
     # Parameters for Monte Carlo simulation
     ticker = st.text_input('Ticker symbol', 'AAPL')
@@ -196,7 +124,7 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
                                        max_value=max_strike, 
                                        value=default_strike, 
                                        step=0.01)
-        st.caption(f"The price at which the option can be exercised. Range: \\${min_strike:.2f} to ${max_strike:.2f}")
+        st.caption(f"The price at which the option can be exercised. Range: \${min_strike:.2f} to ${max_strike:.2f}")
     else:
         strike_price = st.number_input('Strike price', min_value=0.01, value=100.0, step=0.01)
         st.caption("The price at which the option can be exercised. Enter a valid ticker to see a suggested range.")
@@ -225,23 +153,19 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
                 st.write("Data fetched successfully:")
                 st.write(data.tail())
                 
-                # Ticker.plot_data should return a Figure (keep this pattern)
                 fig = Ticker.plot_data(data, ticker, 'Close')
                 st.pyplot(fig)
-                plt.close(fig)
 
                 spot_price = Ticker.get_last_price(data, 'Close')
-                risk_free_rate = risk_free_rate / 100.0
-                sigma = sigma / 100.0
+                risk_free_rate = risk_free_rate / 100
+                sigma = sigma / 100
                 days_to_maturity = (exercise_date - datetime.now().date()).days
 
                 MC = MonteCarloPricing(spot_price, strike_price, days_to_maturity, risk_free_rate, sigma, number_of_simulations)
-                MC.simulate_prices(n_steps=252)
+                MC.simulate_prices()
 
-                # Capture the returned Figure and pass it explicitly to st.pyplot()
-                fig_sim = MC.plot_simulation_results(num_of_movements)
-                st.pyplot(fig_sim)
-                plt.close(fig_sim)
+                MC.plot_simulation_results(num_of_movements)
+                st.pyplot()
 
                 call_option_price = MC.calculate_option_price('Call Option')
                 put_option_price = MC.calculate_option_price('Put Option')
