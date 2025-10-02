@@ -133,8 +133,6 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                 st.error("Unable to proceed with calculations due to data fetching error.")
         except Exception as e:
             st.error(f"Error during calculation: {str(e)}")
-    else:
-        st.info("Click 'Calculate option price' to see results.")
 
 elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
     # Parameters for Monte Carlo simulation
