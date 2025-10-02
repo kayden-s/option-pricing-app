@@ -49,7 +49,7 @@ pricing_method = st.sidebar.radio('Please select option pricing method', options
 st.subheader(f'Pricing method: {pricing_method}')
 
 if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
-    # Make text input visually uppercase and ensure stored value is uppercase
+    # Make text uppercase
     st.markdown(
         """
         <style>
@@ -159,8 +159,21 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
             st.error(f"Error during calculation: {str(e)}")
 
 elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
+    # Make text uppercase
+    st.markdown(
+        """
+        <style>
+        [data-testid="stTextInput"] input {
+            text-transform: uppercase;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    
     # Parameters for Monte Carlo simulation
     ticker = st.text_input('Ticker symbol', 'AAPL')
+    ticker = ticker.upper()
     st.caption("Enter the stock symbol (e.g., AAPL for Apple Inc.)")
 
     # Fetch current price
@@ -267,8 +280,21 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
             st.error(f"Error during calculation: {str(e)}")
 
 elif pricing_method == OPTION_PRICING_MODEL.BINOMIAL.value:
+    # Make text uppercase
+    st.markdown(
+        """
+        <style>
+        [data-testid="stTextInput"] input {
+            text-transform: uppercase;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    
     # Parameters for Binomial-Tree model
     ticker = st.text_input('Ticker symbol', 'AAPL')
+    ticker = ticker.upper()
     st.caption("Enter the stock symbol (e.g., AAPL for Apple Inc.)")
 
     # Fetch current price
