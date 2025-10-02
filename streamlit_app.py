@@ -214,18 +214,15 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
                         line-height: 1 !important;
                     }
                 
-                    /* Increase label size and weight */
                     [data-testid="stMetricLabel"],
                     [data-testid="stMetricLabel"] * {
                         font-size: 1.1rem !important;
                         font-weight: 500 !important;
                     }
-
-                    /* optional: tighten spacing between label and value */
+                
                     [data-testid="stMetricLabel"] {
                         margin-bottom: 0.5rem !important;
                     }
-                
                     </style>
                     """,
                     unsafe_allow_html=True,
@@ -236,8 +233,11 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
                     st.metric("Call Option Price", f"${call_option_price:.2f}")
                 with col2:
                     st.metric("Put Option Price", f"${put_option_price:.2f}")
-
-                st.markdown("---")
+                
+                st.markdown(
+                    '<hr style="margin-top:15px; margin-bottom:20px; border:0; border-top:1px solid #ccc;">',
+                    unsafe_allow_html=True
+                )
             
                 st.write("Data fetched successfully:")
                 st.write(data.tail())
@@ -317,18 +317,15 @@ elif pricing_method == OPTION_PRICING_MODEL.BINOMIAL.value:
                         line-height: 1 !important;
                     }
                 
-                    /* Increase label size and weight */
                     [data-testid="stMetricLabel"],
                     [data-testid="stMetricLabel"] * {
                         font-size: 1.1rem !important;
                         font-weight: 500 !important;
                     }
-
-                    /* optional: tighten spacing between label and value */
+                
                     [data-testid="stMetricLabel"] {
                         margin-bottom: 0.5rem !important;
                     }
-                
                     </style>
                     """,
                     unsafe_allow_html=True,
@@ -339,8 +336,11 @@ elif pricing_method == OPTION_PRICING_MODEL.BINOMIAL.value:
                     st.metric("Call Option Price", f"${call_option_price:.2f}")
                 with col2:
                     st.metric("Put Option Price", f"${put_option_price:.2f}")
-
-                st.markdown("---")
+                
+                st.markdown(
+                    '<hr style="margin-top:15px; margin-bottom:20px; border:0; border-top:1px solid #ccc;">',
+                    unsafe_allow_html=True
+                )
 
                 st.write("Data fetched successfully:")
                 st.write(data.tail())
