@@ -88,11 +88,21 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                 call_option_price = BSM.calculate_option_price('Call Option')
                 put_option_price = BSM.calculate_option_price('Put Option')
             
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.metric("Call Option Price", f"${call_option_price:.2f}")
-                with col2:
-                    st.metric("Put Option Price", f"${put_option_price:.2f}")
+                st.markdown(
+                    f"""
+                    <div style="display:flex; justify-content:space-around; margin-top:20px; margin-bottom:20px;">
+                        <div style="padding:20px; border-radius:10px; background-color:#f9f9f9; box-shadow:0 2px 5px rgba(0,0,0,0.1); text-align:center;">
+                            <h4>Call Option Price</h4>
+                            <p style="font-size:24px; font-weight:bold; color:green;">${call_option_price:.2f}</p>
+                        </div>
+                        <div style="padding:20px; border-radius:10px; background-color:#f9f9f9; box-shadow:0 2px 5px rgba(0,0,0,0.1); text-align:center;">
+                            <h4>Put Option Price</h4>
+                            <p style="font-size:24px; font-weight:bold; color:red;">${put_option_price:.2f}</p>
+                        </div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
 
                 st.markdown("---")
             
