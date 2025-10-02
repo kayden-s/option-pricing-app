@@ -31,7 +31,7 @@ def get_current_price(ticker):
 
 st.markdown(
     """
-    <div style="font-family: font-size: 2rem; font-weight: 700; margin-bottom: 0;">
+    <div style="font-family: font-size: 10rem; font-weight: 700; margin-bottom: 0;">
         Derivio
     </div>
     <div style="font-family: font-size: 2.5rem; font-weight: 600; margin-top: 0.2rem; margin-bottom: 20px;">
