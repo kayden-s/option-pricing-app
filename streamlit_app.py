@@ -182,8 +182,26 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
                 call_option_price = MC.calculate_option_price('Call Option')
                 put_option_price = MC.calculate_option_price('Put Option')
             
-                st.subheader(f'Call option price: {call_option_price:.2f}')
-                st.subheader(f'Put option price: {put_option_price:.2f}')
+                st.markdown(
+                    """
+                    <style>
+                    [data-testid="stMetricValue"] {
+                        font-size: 2rem;
+                        font-weight: 700;
+                    }
+                    [data-testid="stMetricLabel"] {
+                        font-weight: 600;
+                    }
+                    </style>
+                    """,
+                    unsafe_allow_html=True
+                )
+                
+                col1, col2, spacer = st.columns([1, 1, 2])
+                with col1:
+                    st.metric("Call Option Price", f"${call_option_price:.2f}")
+                with col2:
+                    st.metric("Put Option Price", f"${put_option_price:.2f}")
 
                 st.markdown("---")
             
@@ -256,8 +274,26 @@ elif pricing_method == OPTION_PRICING_MODEL.BINOMIAL.value:
                 call_option_price = BOPM.calculate_option_price('Call Option')
                 put_option_price = BOPM.calculate_option_price('Put Option')
 
-                st.subheader(f'Call option price: {call_option_price:.2f}')
-                st.subheader(f'Put option price: {put_option_price:.2f}')
+                st.markdown(
+                    """
+                    <style>
+                    [data-testid="stMetricValue"] {
+                        font-size: 2rem;
+                        font-weight: 700;
+                    }
+                    [data-testid="stMetricLabel"] {
+                        font-weight: 600;
+                    }
+                    </style>
+                    """,
+                    unsafe_allow_html=True
+                )
+                
+                col1, col2, spacer = st.columns([1, 1, 2])
+                with col1:
+                    st.metric("Call Option Price", f"${call_option_price:.2f}")
+                with col2:
+                    st.metric("Put Option Price", f"${put_option_price:.2f}")
 
                 st.markdown("---")
 
