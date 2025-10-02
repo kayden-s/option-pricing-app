@@ -35,7 +35,7 @@ st.markdown(
     <div style="font-family: 'Arial', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 0;">
         Derivio
     </div>
-    <div style="font-family: 'Arial', sans-serif; font-size: 2.5rem; font-weight: 600; margin-top: 0.2rem; margin-bottom: 20px;">
+    <div style="font-family: 'Arial', sans-serif; font-size: 2.5rem; font-weight: 600; margin-bottom: 20px;">
         Option Pricing
     </div>
     """,
