@@ -130,7 +130,7 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                     st.metric("Put Option Price", f"${put_option_price:.2f}")
                 
                 st.markdown(
-                    '<hr style="margin-top:10px; margin-bottom:10px; border:1px solid #ccc;">',
+                    '<hr style="margin-top:10px; margin-bottom:10px; border:0; border-top:1px solid #ccc;">'',
                     unsafe_allow_html=True
                 )
             
