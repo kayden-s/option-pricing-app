@@ -166,6 +166,8 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
             
                 st.subheader(f'Call option price: {call_option_price:.2f}')
                 st.subheader(f'Put option price: {put_option_price:.2f}')
+
+                st.markdown("---")
             
                 st.write("Data fetched successfully:")
                 st.write(data.tail())
@@ -238,6 +240,8 @@ elif pricing_method == OPTION_PRICING_MODEL.BINOMIAL.value:
 
                 st.subheader(f'Call option price: {call_option_price:.2f}')
                 st.subheader(f'Put option price: {put_option_price:.2f}')
+
+                st.markdown("---")
 
                 st.write("Data fetched successfully:")
                 st.write(data.tail())
