@@ -50,6 +50,18 @@ st.subheader(f'Pricing method: {pricing_method}')
 
 if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
     # Parameters for Black-Scholes model
+    st.markdown(
+        """
+        <style>
+        /* Make text input all caps */
+        [data-testid="stTextInput"] input {
+            text-transform: uppercase;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    
     ticker = st.text_input('Ticker symbol', 'AAPL')
     st.caption("Enter the stock symbol (e.g., AAPL for Apple Inc.)")
 
