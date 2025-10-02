@@ -90,16 +90,8 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
             
                 st.markdown(
                     f"""
-                    <div style="display:flex; justify-content:space-around; margin-top:20px; margin-bottom:20px;">
-                        <div style="padding:20px; border-radius:10px; background-color:#f9f9f9; box-shadow:0 2px 5px rgba(0,0,0,0.1); text-align:center;">
-                            <h4>Call Option Price</h4>
-                            <p style="font-size:24px; font-weight:bold; color:green;">${call_option_price:.2f}</p>
-                        </div>
-                        <div style="padding:20px; border-radius:10px; background-color:#f9f9f9; box-shadow:0 2px 5px rgba(0,0,0,0.1); text-align:center;">
-                            <h4>Put Option Price</h4>
-                            <p style="font-size:24px; font-weight:bold; color:red;">${put_option_price:.2f}</p>
-                        </div>
-                    </div>
+                    ### **Call Option Price:** ${call_option_price:.2f}  
+                    ### **Put Option Price:** ${put_option_price:.2f}
                     """,
                     unsafe_allow_html=True
                 )
