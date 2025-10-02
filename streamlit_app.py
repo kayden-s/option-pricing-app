@@ -153,7 +153,7 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
                 data = get_historical_data(ticker)
             
             if data is not None and not data.empty:
-                 spot_price = Ticker.get_last_price(data, 'Close')
+                spot_price = Ticker.get_last_price(data, 'Close')
                 risk_free_rate = risk_free_rate / 100
                 sigma = sigma / 100
                 days_to_maturity = (exercise_date - datetime.now().date()).days
