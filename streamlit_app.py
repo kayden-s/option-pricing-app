@@ -91,11 +91,17 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                 st.markdown(
                     """
                     <style>
-                    div[data-testid="stMetricValue"] {
+                    .option-metrics {
+                        display: flex;
+                        gap: 2rem;              /* spacing between call/put */
+                        align-items: center;
+                        flex-wrap: nowrap;      /* keep in one row, even on mobile */
+                    }
+                    .option-metrics div[data-testid="stMetricValue"] {
                         font-weight: 700;
                         font-size: 32px;
                     }
-                    div[data-testid="stMetricLabel"] {
+                    .option-metrics div[data-testid="stMetricLabel"] {
                         font-weight: 600;
                     }
                     </style>
@@ -103,11 +109,17 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                     unsafe_allow_html=True
                 )
                 
-                col1, col2, spacer = st.columns([1, 1, 5])
-                with col1:
-                    st.metric("Call Option Price", f"${call_option_price:.2f}")
-                with col2:
-                    st.metric("Put Option Price", f"${put_option_price:.2f}")
+                # Wrap in a container so CSS applies only here
+                with st.container():
+                    st.markdown('<div class="option-metrics">', unsafe_allow_html=True)
+                
+                    col1, col2 = st.columns([1, 1])
+                    with col1:
+                        st.metric("Call Option Price", f"${call_option_price:.2f}")
+                    with col2:
+                        st.metric("Put Option Price", f"${put_option_price:.2f}")
+                
+                    st.markdown('</div>', unsafe_allow_html=True)
                 
                 st.markdown("---")
             
