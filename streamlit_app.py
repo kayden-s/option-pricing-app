@@ -91,25 +91,20 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                 st.markdown(
                     """
                     <style>
-                    /* Make value big and bold */
                     [data-testid="stMetricValue"],
                     [data-testid="stMetricValue"] * {
                         font-size: 2.5rem !important;
-                        font-weight: 700 !important;
+                        font-weight: 600 !important;
                         line-height: 1 !important;
                     }
                 
                     /* Increase label size and weight */
                     [data-testid="stMetricLabel"],
                     [data-testid="stMetricLabel"] * {
-                        font-size: 1.25rem !important;
-                        font-weight: 700 !important;
+                        font-size: 1rem !important;
+                        font-weight: 500 !important;
                     }
                 
-                    /* optional: tighten spacing between label and value */
-                    [data-testid="stMetricLabel"] {
-                        margin-bottom: 0.2rem !important;
-                    }
                     </style>
                     """,
                     unsafe_allow_html=True,
