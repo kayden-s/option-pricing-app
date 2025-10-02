@@ -92,10 +92,11 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                     """
                     <style>
                     [data-testid="stMetricValue"] {
-                        font-size: 2.5rem;
+                        font-size: 2.5rem;   /* Bigger option price values */
                         font-weight: 700;
                     }
                     [data-testid="stMetricLabel"] {
+                        font-size: 1.2rem;   /* Increase label font size */
                         font-weight: 600;
                     }
                     </style>
