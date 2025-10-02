@@ -197,16 +197,28 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
                 st.markdown(
                     """
                     <style>
-                    [data-testid="stMetricValue"] {
-                        font-size: 2.5rem;
-                        font-weight: 700;
+                    [data-testid="stMetricValue"],
+                    [data-testid="stMetricValue"] * {
+                        font-size: 2.5rem !important;
+                        font-weight: 600 !important;
+                        line-height: 1 !important;
                     }
+                
+                    /* Increase label size and weight */
+                    [data-testid="stMetricLabel"],
+                    [data-testid="stMetricLabel"] * {
+                        font-size: 1rem !important;
+                        font-weight: 500 !important;
+                    }
+
+                    /* optional: tighten spacing between label and value */
                     [data-testid="stMetricLabel"] {
-                        font-weight: 600;
+                        margin-bottom: 0.5rem !important;
                     }
+                
                     </style>
                     """,
-                    unsafe_allow_html=True
+                    unsafe_allow_html=True,
                 )
                 
                 col1, col2, spacer = st.columns([1, 1, 2])
@@ -288,16 +300,28 @@ elif pricing_method == OPTION_PRICING_MODEL.BINOMIAL.value:
                 st.markdown(
                     """
                     <style>
-                    [data-testid="stMetricValue"] {
-                        font-size: 2.5rem;
-                        font-weight: 700;
+                    [data-testid="stMetricValue"],
+                    [data-testid="stMetricValue"] * {
+                        font-size: 2.5rem !important;
+                        font-weight: 600 !important;
+                        line-height: 1 !important;
                     }
+                
+                    /* Increase label size and weight */
+                    [data-testid="stMetricLabel"],
+                    [data-testid="stMetricLabel"] * {
+                        font-size: 1rem !important;
+                        font-weight: 500 !important;
+                    }
+
+                    /* optional: tighten spacing between label and value */
                     [data-testid="stMetricLabel"] {
-                        font-weight: 600;
+                        margin-bottom: 0.5rem !important;
                     }
+                
                     </style>
                     """,
-                    unsafe_allow_html=True
+                    unsafe_allow_html=True,
                 )
                 
                 col1, col2, spacer = st.columns([1, 1, 2])
