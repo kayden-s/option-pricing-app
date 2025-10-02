@@ -92,11 +92,11 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                     """
                     <style>
                     div[data-testid="stMetricValue"] {
-                        font-weight: 700;   /* makes numbers bold */
-                        font-size: 24px;    /* adjust size if needed */
+                        font-weight: 700;
+                        font-size: 32px;
                     }
                     div[data-testid="stMetricLabel"] {
-                        font-weight: 600;   /* makes labels bold */
+                        font-weight: 600;
                     }
                     </style>
                     """,
