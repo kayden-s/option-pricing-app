@@ -93,13 +93,13 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                     <style>
                     .option-metrics {
                         display: flex;
-                        gap: 2rem;              /* spacing between call/put */
+                        gap: 1.5rem;            /* spacing between call/put */
                         align-items: center;
-                        flex-wrap: nowrap;      /* keep in one row, even on mobile */
+                        flex-wrap: nowrap;      /* keep side by side on mobile */
                     }
                     .option-metrics div[data-testid="stMetricValue"] {
                         font-weight: 700;
-                        font-size: 32px;
+                        font-size: 28px;
                     }
                     .option-metrics div[data-testid="stMetricLabel"] {
                         font-weight: 600;
@@ -109,11 +109,12 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                     unsafe_allow_html=True
                 )
                 
-                # Wrap in a container so CSS applies only here
                 with st.container():
                     st.markdown('<div class="option-metrics">', unsafe_allow_html=True)
                 
-                    col1, col2 = st.columns([1, 1])
+                    # Make metrics narrower by giving them less weight
+                    col1, col2, spacer = st.columns([1, 1, 6])
+                
                     with col1:
                         st.metric("Call Option Price", f"${call_option_price:.2f}")
                     with col2:
