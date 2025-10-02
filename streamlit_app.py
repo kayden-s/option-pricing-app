@@ -92,7 +92,7 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                     """
                     <style>
                     [data-testid="stMetricValue"] {
-                        font-size: 3rem;
+                        font-size: 2.5rem;
                         font-weight: 700;
                     }
                     [data-testid="stMetricLabel"] {
@@ -186,7 +186,7 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
                     """
                     <style>
                     [data-testid="stMetricValue"] {
-                        font-size: 3rem;
+                        font-size: 2.5rem;
                         font-weight: 700;
                     }
                     [data-testid="stMetricLabel"] {
@@ -278,7 +278,7 @@ elif pricing_method == OPTION_PRICING_MODEL.BINOMIAL.value:
                     """
                     <style>
                     [data-testid="stMetricValue"] {
-                        font-size: 3rem;
+                        font-size: 2.5rem;
                         font-weight: 700;
                     }
                     [data-testid="stMetricLabel"] {
