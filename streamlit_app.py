@@ -155,6 +155,7 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
                 
                 fig = Ticker.plot_data(data, ticker, 'Close')
                 st.pyplot(fig)
+                plt.close(fig)
 
                 spot_price = Ticker.get_last_price(data, 'Close')
                 risk_free_rate = risk_free_rate / 100
@@ -164,8 +165,9 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
                 MC = MonteCarloPricing(spot_price, strike_price, days_to_maturity, risk_free_rate, sigma, number_of_simulations)
                 MC.simulate_prices()
 
-                MC.plot_simulation_results(num_of_movements)
-                st.pyplot()
+                fig_sim = MC.plot_simulation_results(num_of_movements)
+                st.pyplot(fig_sim)
+                plt.close(fig_sim)
 
                 call_option_price = MC.calculate_option_price('Call Option')
                 put_option_price = MC.calculate_option_price('Put Option')
