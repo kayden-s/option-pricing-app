@@ -105,7 +105,7 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                 )
                 
                 # Call & Put Option Prices (left aligned, compact)
-                col1, col2, spacer = st.columns([1, 1, 8])
+                col1, col2, spacer = st.columns([1, 1, 4])
                 
                 with col1:
                     st.metric("Call Option Price", f"${call_option_price:.2f}")
