@@ -72,7 +72,8 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
 
     exercise_date = st.date_input('Exercise date', min_value=datetime.today() + timedelta(days=1), value=datetime.today() + timedelta(days=365))
     st.caption("The date when the option can be exercised")
-    
+
+    st.markdown("<div style='margin-top:20px;'></div>", unsafe_allow_html=True)
     if st.button(f'Calculate option price for {ticker}'):
         try:
             with st.spinner('Fetching data...'):
