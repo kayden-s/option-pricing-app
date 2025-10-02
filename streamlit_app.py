@@ -88,20 +88,31 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                 call_option_price = BSM.calculate_option_price('Call Option')
                 put_option_price = BSM.calculate_option_price('Put Option')
             
-                st.markdown(
+               st.markdown(
                     """
                     <style>
-                    [data-testid="stMetricValue"] {
-                        font-size: 2.5rem;   /* Bigger option price values */
-                        font-weight: 700;
+                    /* Make value big and bold */
+                    [data-testid="stMetricValue"],
+                    [data-testid="stMetricValue"] * {
+                        font-size: 2.5rem !important;
+                        font-weight: 700 !important;
+                        line-height: 1 !important;
                     }
+                
+                    /* Increase label size and weight */
+                    [data-testid="stMetricLabel"],
+                    [data-testid="stMetricLabel"] * {
+                        font-size: 1.25rem !important;
+                        font-weight: 700 !important;
+                    }
+                
+                    /* optional: tighten spacing between label and value */
                     [data-testid="stMetricLabel"] {
-                        font-size: 1.2rem;   /* Increase label font size */
-                        font-weight: 600;
+                        margin-bottom: 0.2rem !important;
                     }
                     </style>
                     """,
-                    unsafe_allow_html=True
+                    unsafe_allow_html=True,
                 )
                 
                 col1, col2, spacer = st.columns([1, 1, 2])
