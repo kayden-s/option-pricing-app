@@ -78,9 +78,6 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                 data = get_historical_data(ticker)
 
             if data is not None and not data.empty:
-                st.subheader(f'Call option price: {call_option_price:.2f}')
-                st.subheader(f'Put option price: {put_option_price:.2f}')
-                
                 st.write("Data fetched successfully:")
                 st.write(data.tail())
                 
