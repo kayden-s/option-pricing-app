@@ -124,7 +124,7 @@ elif pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
                                        max_value=max_strike, 
                                        value=default_strike, 
                                        step=0.01)
-        st.caption(f"The price at which the option can be exercised. Range: ${min_strike:.2f} to ${max_strike:.2f}")
+        st.caption(f"The price at which the option can be exercised. Range: \${min_strike:.2f} to ${max_strike:.2f}")
     else:
         strike_price = st.number_input('Strike price', min_value=0.01, value=100.0, step=0.01)
         st.caption("The price at which the option can be exercised. Enter a valid ticker to see a suggested range.")
@@ -200,7 +200,7 @@ elif pricing_method == OPTION_PRICING_MODEL.BINOMIAL.value:
                                        max_value=max_strike, 
                                        value=default_strike, 
                                        step=0.01)
-        st.caption(f"The price at which the option can be exercised. Range: ${min_strike:.2f} to ${max_strike:.2f}")
+        st.caption(f"The price at which the option can be exercised. Range: \${min_strike:.2f} to ${max_strike:.2f}")
     else:
         strike_price = st.number_input('Strike price', min_value=0.01, value=100.0, step=0.01)
         st.caption("The price at which the option can be exercised. Enter a valid ticker to see a suggested range.")
