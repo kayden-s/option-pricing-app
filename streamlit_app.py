@@ -115,11 +115,6 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                         font-size: 1.1rem !important;
                         font-weight: 500 !important;
                     }
-
-                    /* optional: tighten spacing between label and value */
-                    [data-testid="stMetricLabel"] {
-                        margin-bottom: 0.5rem !important;
-                    }
                 
                     </style>
                     """,
