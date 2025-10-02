@@ -3,6 +3,7 @@ from enum import Enum
 from datetime import datetime, timedelta
 import yfinance as yf
 from option_pricing import BlackScholesModel, MonteCarloPricing, BinomialTreeModel, Ticker
+import matplotlib.pyplot as plt
 import json
 
 class OPTION_PRICING_MODEL(Enum):
