@@ -88,20 +88,15 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                 call_option_price = BSM.calculate_option_price('Call Option')
                 put_option_price = BSM.calculate_option_price('Put Option')
             
+                # Custom styling for metrics
                 st.markdown(
                     """
                     <style>
-                    .option-metrics {
-                        display: flex;
-                        gap: 1.5rem;            /* spacing between call/put */
-                        align-items: center;
-                        flex-wrap: nowrap;      /* keep side by side on mobile */
-                    }
-                    .option-metrics div[data-testid="stMetricValue"] {
+                    [data-testid="stMetricValue"] {
+                        font-size: 1.3rem;
                         font-weight: 700;
-                        font-size: 28px;
                     }
-                    .option-metrics div[data-testid="stMetricLabel"] {
+                    [data-testid="stMetricLabel"] {
                         font-weight: 600;
                     }
                     </style>
@@ -109,18 +104,15 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
                     unsafe_allow_html=True
                 )
                 
-                with st.container():
-                    st.markdown('<div class="option-metrics">', unsafe_allow_html=True)
+                # Call & Put Option Prices (left aligned, compact)
+                col1, col2, spacer = st.columns([1, 1, 8])
                 
-                    # Make metrics narrower by giving them less weight
-                    col1, col2, spacer = st.columns([1, 1, 6])
+                with col1:
+                    st.metric("Call Option Price", f"${call_option_price:.2f}")
                 
-                    with col1:
-                        st.metric("Call Option Price", f"${call_option_price:.2f}")
-                    with col2:
-                        st.metric("Put Option Price", f"${put_option_price:.2f}")
-                
-                    st.markdown('</div>', unsafe_allow_html=True)
+                with col2:
+                    st.metric("Put Option Price", f"${put_option_price:.2f}")
+
                 
                 st.markdown("---")
             
