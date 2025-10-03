@@ -6,6 +6,18 @@ from option_pricing import BlackScholesModel, MonteCarloPricing, BinomialTreeMod
 import matplotlib.pyplot as plt
 import json
 
+# Hide Streamlit branding/footer/menu (only inside app, not the Streamlit Cloud overlay)
+st.markdown(
+    """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 class OPTION_PRICING_MODEL(Enum):
     BLACK_SCHOLES = 'Black Scholes Model'
     MONTE_CARLO = 'Monte Carlo Simulation'
