@@ -10,9 +10,20 @@ import json
 st.markdown(
     """
     <style>
+    /* Hide Streamlit's default header, footer, and menu */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
+
+    /* Hide everything in the main body */
+    .block-container {
+        display: none;
+    }
+
+    /* Keep sidebar visible */
+    [data-testid="stSidebar"] .block-container {
+        display: block !important;
+    }
     </style>
     """,
     unsafe_allow_html=True
