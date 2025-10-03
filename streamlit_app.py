@@ -6,12 +6,17 @@ from option_pricing import BlackScholesModel, MonteCarloPricing, BinomialTreeMod
 import matplotlib.pyplot as plt
 import json
 
-# Inject custom CSS to hide the "Hosted with Streamlit" button
-html('''
-    <script>
-        window.top.document.querySelectorAll(`[href*="streamlit.io"]`).forEach(e => e.setAttribute("style", "display: none;"));
-    </script>
-''')
+# Hide Streamlit branding/footer/menu (only inside app, not the Streamlit Cloud overlay)
+st.markdown(
+    """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 class OPTION_PRICING_MODEL(Enum):
     BLACK_SCHOLES = 'Black Scholes Model'
