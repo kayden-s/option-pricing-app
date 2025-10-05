@@ -38,7 +38,7 @@ A discrete-time model that represents the evolution of the underlying asset's pr
 - `option_pricing/`: Python package containing model implementations
 - `streamlit_app.py`: Main script for the Streamlit web app
 - `Requirements.txt`: List of required Python packages
-- `Dockerfile`: Configuration for running the app in a Docker container
+- `Dockerfile`: Configuration for running the app in a Docker container 
 
 ## How to Run the App
 
