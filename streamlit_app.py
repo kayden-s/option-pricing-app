@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import json
 
 class OPTION_PRICING_MODEL(Enum):
-    BLACK_SCHOLES = 'Black Scholes Model'
+    BLACK_SCHOLES = 'Black-Scholes Model'
     MONTE_CARLO = 'Monte Carlo Simulation'
     BINOMIAL = 'Binomial Model'
 
