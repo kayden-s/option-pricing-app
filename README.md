@@ -4,7 +4,7 @@
 This repository contains a simple web app for calculating European option prices using three different methods:
 
 1. Black-Scholes model
-2. Monte Carlo simulation
+2. Monte Carlo simulation 
 3. Binomial model
 
 The app is implemented in Python 3.9 and uses the Streamlit library for visualization.
