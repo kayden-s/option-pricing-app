@@ -1,6 +1,5 @@
 name: Auto Empty Commit
 
-# give the workflow permissions to write the repository contents
 permissions:
   contents: write
 
@@ -17,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true  # ensure GITHUB_TOKEN is available for push
+          persist-credentials: true 
 
       - name: Configure git
         run: |
