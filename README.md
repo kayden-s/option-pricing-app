@@ -25,7 +25,7 @@ A **discrete-time framework** that models the underlying price as a binomial tre
 
 ---
 
-## ⚙️ Features
+## Features
 - Fetches **live market data** for over **105,000 stocks** via the Yahoo Finance API (`pandas-datareader`)
 - **Caches** API calls using `requests-cache` for faster performance  
 - Customizable user inputs:
