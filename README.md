@@ -11,8 +11,7 @@ The app fetches data for 105,000+ stocks and provides an interactive interface f
 ---
 
 ## Overview
-Derivio allows users to compute theoretical option prices for both call and put options under various assumptions and market conditions.  
-It’s implemented in Python 3.9 and built with Streamlit for an intuitive, browser-based experience.
+Derivio allows users to compute theoretical option prices for both call and put options under various assumptions and market conditions.
 
 ---
 
