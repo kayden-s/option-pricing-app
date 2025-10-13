@@ -1,7 +1,11 @@
 # Derivio
 
-Derivio is a web platform for pricing financial options using three quantitative methods:  
-Black-Scholes, Monte Carlo Simulation, and the Binomial Model.  
+Derivio is a web platform for pricing financial options using three quantitative methods: 
+
+1. Black-Scholes model
+2. Monte Carlo simulation
+3. Binomial model
+
 The app fetches data for 105,000+ stocks and provides an interactive interface for analysis and comparison.
 
 ---
